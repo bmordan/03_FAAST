@@ -5,8 +5,11 @@ class Passanger
   end
 
   def board(train)
-    touchin!
-    train.board(self)
+    if train.spaces == 0
+      false
+    else
+      train.board(self)
+    end
   end
 
   def alight(station)

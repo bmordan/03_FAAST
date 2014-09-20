@@ -18,6 +18,7 @@ describe Passanger do
 
   it "should be able to board trains" do
     allow(train).to receive(:board).and_return(passanger)
+    allow(train).to receive(:spaces).and_return(40)
     expect(passanger.board(train)).to eq(passanger)
   end
 
@@ -26,7 +27,8 @@ describe Passanger do
     expect(passanger.alight(station)).to eq(passanger)
   end
 
-  it "should try the next coach is first one is full" do
+  it "should not be able to board a coach that is full" do
+    allow(train).to receive(:board).and_return(false)
     allow(train).to receive(:spaces).and_return(0)
     expect(passanger.board(train)).to eq(false)
   end
