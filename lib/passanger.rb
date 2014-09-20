@@ -1,17 +1,20 @@
-require_relative './train'
-
-class Passanger < Train
+class Passanger
 
   def initialize
     @balance = 30
   end
 
-  def balance
-    @balance
+  def board(train)
+    train.passangers
   end
 
   def alight(station)
-    station
+    station.passangers << self
+    train.passangers.delete(self)
+  end
+
+  def balance
+    @balance
   end
 
   def touchin!

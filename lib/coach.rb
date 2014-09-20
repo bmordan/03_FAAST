@@ -8,13 +8,4 @@ class Coach
     @passangers ||= []
   end
 
-  def board(passanger)
-    passangers << passanger
-
-  end
-
-  def alight(station)
-    passangers.pop
-  end
-
 end

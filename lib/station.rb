@@ -12,8 +12,8 @@ class Station < Coach
     @name
   end
 
-  def enter(passangers)
-    @passangers = passangers
+  def enter(passanger)
+    @passangers << passanger
   end
 
   def board(passanger)
