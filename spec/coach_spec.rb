@@ -15,4 +15,9 @@ describe Coach do
     expect(coach.passangers).to be_a(Array)
   end
 
+  it "can be boarded by a passanger" do
+    coach.board(passanger)
+    expect(coach.passangers.count).to eq(1)
+  end
+
 end

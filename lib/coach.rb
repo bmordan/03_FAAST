@@ -5,7 +5,11 @@ module Coach
   end
 
   def passangers
-    @passangers = []
+    @passangers ||= []
+  end
+
+  def board(passanger)
+    passangers << passanger
   end
 
 end
