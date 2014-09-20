@@ -13,4 +13,11 @@ describe Train do
     expect(train.coaches.count).to eq(8)
   end
 
+  it "can be initialized with upto 12 coaches" do
+    train = Train.new(:coaches => 12)
+    expect(train.coaches.count).to eq(12)
+    train2 = Train.new(:coaches => 15)
+    expect(train2.coaches.count).to eq(8)
+  end
+
 end

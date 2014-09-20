@@ -1,8 +1,11 @@
 class Train
 
+  DEFAULT = 8
+
   def initialize(options = {})
     @coaches = []
-    options.fetch(:coaches,8).times {@coaches << :coach}
+    add = options.fetch(:coaches, DEFAULT)
+    add < 13 ? add.times {@coaches << :coach}  : DEFAULT.times {@coaches << :coach}
   end
 
   def coaches
