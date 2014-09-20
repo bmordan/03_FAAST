@@ -6,4 +6,8 @@ class Passanger
   def balance
     @balance
   end
+
+  def alight(station)
+    station
+  end
 end
