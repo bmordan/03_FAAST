@@ -21,4 +21,9 @@ describe Passanger do
     expect(passanger.board(train)).to eq(passanger)
   end
 
+  it "should be able to alight from a train" do
+    allow(station).to receive(:passangers).and_return(passanger)
+    expect(passanger.alight(station)).to eq(passanger)
+  end
+
 end

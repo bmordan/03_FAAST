@@ -5,12 +5,11 @@ class Passanger
   end
 
   def board(train)
-    train.passangers
+    train.passangers(self)
   end
 
   def alight(station)
-    station.passangers << self
-    train.passangers.delete(self)
+    station.passangers(self)
   end
 
   def balance
