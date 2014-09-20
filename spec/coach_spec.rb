@@ -11,4 +11,8 @@ describe Coach do
     expect(coach.spaces).to eq(40)
   end
 
+  it "can accomodate passangers" do
+    expect(coach.passangers).to be_a(Array)
+  end
+
 end

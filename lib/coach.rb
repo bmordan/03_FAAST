@@ -4,4 +4,8 @@ module Coach
     40
   end
 
+  def passangers
+    @passangers = []
+  end
+
 end
