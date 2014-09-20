@@ -6,4 +6,8 @@ class Station < Coach
     @passangers = passangers
   end
 
+  def board(passanger)
+    passanger.touchin(self)
+  end
+
 end

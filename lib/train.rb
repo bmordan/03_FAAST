@@ -18,4 +18,8 @@ class Train < Coach
     station
   end
 
+  def goto(station)
+    station
+  end
+
 end

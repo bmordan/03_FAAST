@@ -25,4 +25,8 @@ describe Train do
     expect(train.stop(station)).to eq(station)
   end
 
+  it "should goto the next station" do
+    expect(train.goto(station)).to eq(station)
+  end
+
 end

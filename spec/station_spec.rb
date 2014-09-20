@@ -17,4 +17,9 @@ describe Station do
     expect(station.passangers.count).to eq(20) 
   end
 
+  it "charges passangers boarding the train" do
+    allow(passanger).to receive(:touchin).and_return(8)
+    expect( station.board(passanger) ).to eq(8)
+  end
+
 end
