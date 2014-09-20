@@ -22,8 +22,14 @@ describe Station do
     expect( station.board(passanger) ).to eq(8)
   end
 
-  it "has a name" do
-    expect(station.name).to eq("Old Street")
+  it "has a unique name by default" do
+    expect(station.name).to include("Tube Station")
+  end
+
+  it "can have a unique name set on init" do
+    name = "Old Street"
+    station = Station.new(:name => name)
+    expect(station.name[0..-6]).to eq(name)
   end
 
 end
