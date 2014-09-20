@@ -1,10 +1,8 @@
 require 'coach'
 
-class MockCoachClass; include Coach; end
-
 describe Coach do
 
-  let(:coach    ) { MockCoachClass.new }
+  let(:coach    ) { Coach.new }
   let(:passanger) { double :passanger  }
   let(:station  ) { double :station    }
 

@@ -1,3 +1,5 @@
+require_relative './coach'
+
 class Train
 
   DEFAULT = 8
@@ -5,7 +7,7 @@ class Train
   def initialize(options = {})
     @coaches = []
     add = options.fetch(:coaches, DEFAULT)
-    add < 13 ? add.times {@coaches << :coach}  : DEFAULT.times {@coaches << :coach}
+    add < 13 ? add.times {@coaches << Coach.new}  : DEFAULT.times {@coaches << :coach}
   end
 
   def coaches

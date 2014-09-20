@@ -1,4 +1,4 @@
-module Coach
+class Coach
 
   def spaces
     40 - passangers.count
