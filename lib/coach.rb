@@ -9,7 +9,11 @@ class Coach
   end
 
   def board(passanger)
-    passangers << passanger
+    if spaces != 0
+      passangers << passanger
+    else
+      false
+    end
   end 
 
 end

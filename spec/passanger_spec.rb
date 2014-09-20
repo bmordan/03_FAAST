@@ -17,13 +17,18 @@ describe Passanger do
   end
 
   it "should be able to board trains" do
-    allow(train).to receive(:passangers).and_return(passanger)
+    allow(train).to receive(:board).and_return(passanger)
     expect(passanger.board(train)).to eq(passanger)
   end
 
   it "should be able to alight from a train" do
-    allow(station).to receive(:passangers).and_return(passanger)
+    allow(station).to receive(:alight).and_return(passanger)
     expect(passanger.alight(station)).to eq(passanger)
+  end
+
+  it "should try the next coach is first one is full" do
+    allow(train).to receive(:spaces).and_return(0)
+    expect(passanger.board(train)).to eq(false)
   end
 
 end

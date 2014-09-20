@@ -27,4 +27,10 @@ describe Coach do
     expect(coach.spaces).to eq(39)
   end
 
+  it "can not be boarded if there is no space" do
+    40.times {coach.passangers << passanger}
+    expect(coach.spaces).to eq(0)
+    expect( coach.board(passanger) ).to eq(false)
+  end
+
 end

@@ -5,12 +5,13 @@ class Passanger
   end
 
   def board(train)
-    train.board(self)
     touchin!
+    train.board(self)
   end
 
   def alight(station)
     station.alight(self)
+    self
   end
 
   def balance
