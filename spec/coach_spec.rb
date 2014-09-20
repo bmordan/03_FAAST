@@ -20,4 +20,13 @@ describe Coach do
     expect(coach.passangers.count).to eq(1)
   end
 
+  it "a passanger should take up a space" do
+    coach.board(passanger)
+    expect(coach.spaces).to eq(39)
+  end
+
+  it "should allow passangers to alight at a station" do
+    
+  end
+
 end

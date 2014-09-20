@@ -1,7 +1,7 @@
 module Coach
 
   def spaces
-    40
+    40 - passangers.count
   end
 
   def passangers
