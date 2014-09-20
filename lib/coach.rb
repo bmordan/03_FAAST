@@ -10,6 +10,7 @@ class Coach
 
   def board(passanger)
     passangers << passanger
+
   end
 
   def alight(station)

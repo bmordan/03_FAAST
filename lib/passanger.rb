@@ -14,4 +14,8 @@ class Passanger < Train
     station
   end
 
+  def touchin!
+    @balance = @balance-2
+  end
+
 end

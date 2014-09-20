@@ -19,4 +19,9 @@ describe Passanger do
     expect(passanger.board(train)).to eq([train])
   end
 
+  it "should pay £2 for a journey" do
+    passanger.touchin!
+    expect(passanger.balance).to eq(28)
+  end
+
 end
