@@ -2,8 +2,9 @@ require 'train'
 
 describe Train do
 
-  let(:coach) {double :coach}
-  let(:train) {Train.new    }
+  let(:coach  ) { double :coach   }
+  let(:train  ) { Train.new       }
+  let(:station) { double :station }
 
   it "should have coaches" do
     expect(train.coaches).to be_a(Array)
@@ -18,6 +19,10 @@ describe Train do
     expect(train.coaches.count).to eq(12)
     train2 = Train.new(:coaches => 15)
     expect(train2.coaches.count).to eq(8)
+  end
+
+  it "stops at stations" do
+    expect(train.stop(station)).to eq(station)
   end
 
 end

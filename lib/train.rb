@@ -12,4 +12,8 @@ class Train
     @coaches
   end
 
+  def stop(station)
+    station
+  end
+
 end
