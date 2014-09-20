@@ -22,4 +22,8 @@ describe Station do
     expect( station.board(passanger) ).to eq(8)
   end
 
+  it "has a name" do
+    expect(station.name).to eq("Old Street")
+  end
+
 end
