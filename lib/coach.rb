@@ -12,4 +12,8 @@ module Coach
     passangers << passanger
   end
 
+  def alight(station)
+    passangers.pop
+  end
+
 end

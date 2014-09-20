@@ -6,6 +6,7 @@ describe Coach do
 
   let(:coach    ) { MockCoachClass.new }
   let(:passanger) { double :passanger  }
+  let(:station  ) { double :station    }
 
   it "should have spaces for upto 40 passangers" do
     expect(coach.spaces).to eq(40)
@@ -26,7 +27,10 @@ describe Coach do
   end
 
   it "should allow passangers to alight at a station" do
-    
+    coach.board(passanger)
+    expect(coach.spaces).to eq(39)
+    coach.alight(station)
+    expect(coach.passangers).to eq([])
   end
 
 end
