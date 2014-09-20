@@ -5,11 +5,11 @@ class Passanger
   end
 
   def board(train)
-    train.passangers(self)
+    train.board(self)
   end
 
   def alight(station)
-    station.passangers(self)
+    station.alight(self)
   end
 
   def balance

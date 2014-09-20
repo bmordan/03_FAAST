@@ -2,9 +2,10 @@ require 'coach'
 
 describe Coach do
 
-  let(:coach    ) { Coach.new }
+  let(:coach    ) { Coach.new          }
   let(:passanger) { double :passanger  }
   let(:station  ) { double :station    }
+  let(:train    ) { double :train      }
 
   it "should have spaces for upto 40 passangers" do
     expect(coach.spaces).to eq(40)
@@ -15,20 +16,15 @@ describe Coach do
   end
 
   it "can be boarded by a passanger" do
-    coach.board(passanger)
-    expect(coach.passangers.count).to eq(1)
+    allow(train).to receive(:board).and_return(passanger)
+    train.board(passanger)
+    expect(coach.board(passanger)).to eq([passanger])
   end
 
-  it "a passanger should take up a space" do
+  it "has limited spaces which passangers take up" do
+    expect(coach.spaces).to eq(40)
     coach.board(passanger)
     expect(coach.spaces).to eq(39)
-  end
-
-  it "should allow passangers to alight at a station" do
-    coach.board(passanger)
-    expect(coach.spaces).to eq(39)
-    coach.alight(station)
-    expect(coach.passangers).to eq([])
   end
 
 end

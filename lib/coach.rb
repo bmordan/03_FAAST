@@ -8,4 +8,8 @@ class Coach
     @passangers ||= []
   end
 
+  def board(passanger)
+    passangers << passanger
+  end 
+
 end
