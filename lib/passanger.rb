@@ -6,6 +6,7 @@ class Passanger
 
   def board(train)
     train.board(self)
+    touchin!
   end
 
   def alight(station)
