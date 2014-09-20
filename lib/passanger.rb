@@ -1,4 +1,7 @@
-class Passanger
+require_relative './train'
+
+class Passanger < Train
+
   def initialize
     @balance = 30
   end
@@ -10,4 +13,5 @@ class Passanger
   def alight(station)
     station
   end
+
 end
