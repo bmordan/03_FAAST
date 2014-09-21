@@ -9,8 +9,7 @@ class Coach
   end
 
   def board(passanger)
-    passangers << passanger
-    passanger
+    passanger.balance > 2 ? passangers << passanger : false
   end
 
 end
