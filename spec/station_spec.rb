@@ -9,7 +9,14 @@ describe Station do
   end
 
   it "should have a platform to hold a train" do
+    allow(train).to receive(:station=)
     expect(station.arrived(train)).to eq(train)
+  end
+
+  it "should tell a train what station it has arrived at" do
+    allow(train).to receive(:station=)
+    allow(train).to receive(:station).and_return(station.name)
+    expect(train.station).to eq(station.name)
   end
 
 end

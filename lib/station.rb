@@ -1,4 +1,3 @@
-require_relative './faast'
 class Station
 
   def name
@@ -6,6 +5,7 @@ class Station
   end
 
   def arrived(train)
+    train.station = @name
     @train = train
   end
 
