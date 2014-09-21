@@ -19,14 +19,12 @@ class Faast
     s.times {stations << Station.new}
 
     t = options.fetch( :trains, DEFAULT_TRAINS )
-    t.times {trains << :train}
+    t.times {trains << Train.new}
 
     stations.each do |station|
       station.arrived(trains.pop) unless trains.count == 0
     end
   end
 
-
-
-
+  
 end

@@ -1,7 +1,11 @@
 class Station
 
-  def name
+  def initialize
     @name = self.object_id
+  end
+
+  def name
+    @name
   end
 
   def arrived(train)

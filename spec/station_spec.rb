@@ -8,6 +8,10 @@ describe Station do
     expect(station.name).to eq(station.object_id)
   end
 
+  it "should have a name when initialized" do
+    expect(station.name).to_not eq(nil)
+  end
+
   it "should have a platform to hold a train" do
     allow(train).to receive(:station=)
     expect(station.arrived(train)).to eq(train)
