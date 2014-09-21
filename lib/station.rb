@@ -12,9 +12,18 @@ class Station
     @train
   end
 
-  def arrived(train)
-    train.station = @name
+  def platform
+    @platform ||= []
+  end
+
+  def arrive(train)
+    train.at_station = @name
+    platform << train
     @train = train
+  end
+
+  def depart
+    platform.pop
   end
 
 end

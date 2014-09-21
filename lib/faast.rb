@@ -25,6 +25,10 @@ class Faast
       station.arrived(trains.pop) unless trains.count == 0
     end
   end
+ 
+  def go
+    stations.index {|s| s.train == nil}
+  end
 
-  
+
 end

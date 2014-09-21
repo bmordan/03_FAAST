@@ -13,20 +13,25 @@ describe Station do
   end
 
   it "should have a platform to hold a train" do
-    allow(train).to receive(:station=)
-    expect(station.arrived(train)).to eq(train)
+    expect(station.platform).to be_a(Array)
   end
 
   it "should know what train has arrived" do
-    allow(train).to receive(:station=)
-    station.arrived(train)
+    allow(train).to receive(:at_station=)
+    station.arrive(train)
     expect(station.train).to eq(train)
   end
 
   it "should tell a train what station it has arrived at" do
-    allow(train).to receive(:station=)
+    allow(train).to receive(:at_station=)
     allow(train).to receive(:station).and_return(station.name)
     expect(train.station).to eq(station.name)
+  end
+
+  it "should release a train when a train departs" do
+    allow(train).to receive(:at_station=)
+    station.arrive(train)
+    expect(station.depart).to eq(train)
   end
 
 end

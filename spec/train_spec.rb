@@ -8,7 +8,7 @@ describe Train do
   let(:nextstation) { double :nextstation }
 
   it "should know what station it is stopped at" do
-    expect(train.station=station).to eq(station)
+    expect(train.at_station=station).to eq(station)
   end
 
 end

@@ -1,3 +1,3 @@
 class Train
-  attr_accessor :station
+  attr_accessor :at_station
 end
