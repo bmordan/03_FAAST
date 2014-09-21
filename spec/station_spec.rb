@@ -19,7 +19,7 @@ describe Station do
   it "should know what train has arrived" do
     allow(train).to receive(:at_station=)
     station.arrive(train)
-    expect(station.train).to eq(train)
+    expect(station.platform[0]).to eq(train)
   end
 
   it "should tell a train what station it has arrived at" do

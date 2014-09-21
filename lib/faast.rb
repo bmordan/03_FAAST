@@ -24,10 +24,20 @@ class Faast
     stations.each do |station|
       station.arrive(trains.pop) unless trains.count == 0
     end
+
+    # puts "Faast system initialized with #{s} stations,trains #{t} and #{p}"
+    # puts "============================================="
+    # puts "Start the Faast system with 'sys = Faast.new'"
+
   end
  
   def move_trains 
-    @stations.last.depart
+    @trains << @stations.last.depart
+    @stations.each do |station|
+      station.arrive(@trains.pop)
+      @trains << station.depart
+    end
+
   end
 
 
