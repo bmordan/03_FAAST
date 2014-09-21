@@ -13,5 +13,10 @@ describe Coach do
     expect(coach.board(passanger)).to eq(passanger)
   end
 
+  it "passangers take up a space" do
+    coach.board(passanger)
+    expect(coach.spaces).to eq(39)
+  end
+
 
 end
