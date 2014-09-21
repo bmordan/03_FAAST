@@ -2,6 +2,7 @@ class Station
 
   def initialize
     @name = self.object_id
+    @platform ||= []
   end
 
   def name
@@ -9,7 +10,7 @@ class Station
   end
 
   def platform
-    @platform ||= []
+    @platform
   end
 
   def arrive(train)

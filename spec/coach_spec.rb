@@ -21,7 +21,7 @@ describe Coach do
   end
 
   it "passangers can only board if they have the right balance" do
-    allow(passanger).to receive(:balance).and_return(2)
+    allow(passanger).to receive(:balance).and_return(0)
     expect(coach.board(passanger)).to eq(false)
   end
 

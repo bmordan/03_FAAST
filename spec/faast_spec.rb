@@ -32,4 +32,10 @@ describe Faast do
     expect(faast.stations[0].platform[0]).not_to eq(init_name)
   end
 
+  it "should actually move trains from station to station" do
+    faast.move_trains
+    expect(faast.trains).to eq(faast.trains)
+  end
+
+
 end
