@@ -13,5 +13,10 @@ class Passanger
   def balance
     @balance
   end
+  
+  def touchin!
+    @balance = @balance-2
+  end
+
 
 end

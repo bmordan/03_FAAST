@@ -13,5 +13,10 @@ describe Passanger do
     expect(passanger.destination?).to_not eq(nil)
   end
 
+  it "can touchin and have their balance adjusted" do
+    passanger.touchin!
+    expect(passanger.balance).to eq(28)
+  end
+
 
 end
