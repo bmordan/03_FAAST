@@ -9,6 +9,7 @@ describe Train do
   let(:coach      ) { double :coach       }
 
   it "should know what station it is stopped at" do
+    allow(coach).to receive(:new).and_return(coach)
     expect(train.at_station=station).to eq(station)
   end
 

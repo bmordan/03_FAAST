@@ -1,2 +1,2 @@
-module Coach
+class Coach
 end

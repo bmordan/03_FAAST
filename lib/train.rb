@@ -1,13 +1,11 @@
 require_relative './coach'
 
 class Train
-  
-  include Coach
 
   attr_accessor :at_station
 
   def initialize
-    8.times {@coaches << :coach}
+    8.times {coaches << Coach.new}
   end
 
   def coaches
