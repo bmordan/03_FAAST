@@ -17,6 +17,12 @@ describe Station do
     expect(station.arrived(train)).to eq(train)
   end
 
+  it "should know what train has arrived" do
+    allow(train).to receive(:station=)
+    station.arrived(train)
+    expect(station.train).to eq(train)
+  end
+
   it "should tell a train what station it has arrived at" do
     allow(train).to receive(:station=)
     allow(train).to receive(:station).and_return(station.name)

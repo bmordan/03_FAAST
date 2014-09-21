@@ -8,6 +8,10 @@ class Station
     @name
   end
 
+  def train
+    @train
+  end
+
   def arrived(train)
     train.station = @name
     @train = train
