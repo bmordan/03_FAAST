@@ -1,7 +1,17 @@
 require_relative 'faast'
 
 class Passanger
-  def select_destination
-    
+
+  def initialize(options = {})
+    @balance = 30
   end
+
+  def destination?
+    [true,false].sample
+  end
+
+  def balance
+    @balance
+  end
+
 end
