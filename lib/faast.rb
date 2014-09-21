@@ -22,12 +22,12 @@ class Faast
     t.times {trains << Train.new}
 
     stations.each do |station|
-      station.arrived(trains.pop) unless trains.count == 0
+      station.arrive(trains.pop) unless trains.count == 0
     end
   end
  
-  def go
-    stations.index {|s| s.train == nil}
+  def move_trains 
+    @stations.last.depart
   end
 
 

@@ -18,8 +18,14 @@ describe Faast do
     expect(faast.trains.count).to eq(0)
   end
 
-  it "should move trains from station to station" do
-    expect(faast.go).to eq(22)
+  it "will be circular the last stop will lead to the first" do
+    expect(faast.move_trains).to be(nil)
   end
+
+  # it "should move trains from station to station" do
+  #   init_name = faast.stations[0].train
+  #   faast.move_trains
+  #   expect(faast.stations[0].train).not_to eq(init_name)
+  # end
 
 end
