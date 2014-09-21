@@ -34,4 +34,8 @@ describe Station do
     expect(station.depart).to eq(train)
   end
 
+  it "should have passangers waiting to board trains" do
+    expect(station.passangers.count).not_to eq(0)
+  end
+
 end

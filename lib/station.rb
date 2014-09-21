@@ -1,8 +1,12 @@
+require_relative './passanger'
+
 class Station
 
   def initialize
     @name = self.object_id
     @platform ||= []
+    @passangers ||= []
+    78.times {passangers << Passanger.new} 
   end
 
   def name
@@ -20,6 +24,10 @@ class Station
 
   def depart
     platform.pop
+  end
+
+  def passangers
+    @passangers
   end
 
 end
