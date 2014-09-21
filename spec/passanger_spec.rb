@@ -6,6 +6,7 @@ describe Passanger do
   let(:station   ) { double :station    }
   let(:train     ) { double :train      }
   let(:coach     ) { double :coach      }
+  let(:coaches   ) { double :coaches    }
 
   it "should begin life with a balance of £30" do
     expect(passanger.balance).to eq(30)
@@ -17,8 +18,11 @@ describe Passanger do
   end
 
   it "should be able to board trains" do
-    allow(train).to receive(:board).and_return(passanger)
-    allow(train).to receive(:spaces).and_return(40)
+    allow(train).to receive(:coaches)
+    allow(coaches).to receive(:each)
+    allow(coach).to receive(:board)
+    allow(coach).to receive(:spaces)
+    allow(station).to receive(:passangers)
     expect(passanger.board(train)).to eq(passanger)
   end
 
@@ -32,5 +36,6 @@ describe Passanger do
     allow(train).to receive(:spaces).and_return(0)
     expect(passanger.board(train)).to eq(false)
   end
+
 
 end

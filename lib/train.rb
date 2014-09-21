@@ -1,6 +1,6 @@
 require_relative './coach'
 
-class Train < Coach
+class Train
 
   DEFAULT = 8
 
@@ -19,7 +19,7 @@ class Train < Coach
   end
 
   def goto(station)
-    station
+    stop(station)
   end
 
 end

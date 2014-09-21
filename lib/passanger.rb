@@ -1,3 +1,5 @@
+require_relative './station'
+
 class Passanger
 
   def initialize
@@ -5,10 +7,15 @@ class Passanger
   end
 
   def board(train)
-    if train.spaces == 0
-      false
-    else
-      train.board(self)
+    train.coaches.each do |coach|
+      if coach.spaces != 0
+        touchin!
+        coach.board(self)
+        station.passangers.delete(self)
+        return
+      else
+        puts 'This train is full!'
+      end
     end
   end
 

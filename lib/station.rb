@@ -1,7 +1,7 @@
 require_relative './coach'
 require_relative './passanger'
 
-class Station < Coach
+class Station
 
   DEFAULT_NAME = "Tube Station #{self.object_id.to_s[0..3]}"
   DEFAULT_CROWD = 0
@@ -10,6 +10,10 @@ class Station < Coach
     @name = DEFAULT_NAME
     @crowd = options.fetch(:crowd,DEFAULT_CROWD)
     @crowd.times { passangers << Passanger.new } unless @crowd == 0
+  end
+
+  def passangers
+    @passangers ||= []
   end
 
   def name
