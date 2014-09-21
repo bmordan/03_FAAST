@@ -37,7 +37,6 @@ class Faast
       station.arrive(@trains.pop)
       @trains << station.depart
     end
-
   end
 
 
