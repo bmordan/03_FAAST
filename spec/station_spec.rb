@@ -1,8 +1,11 @@
 require 'station'
 
 describe Station do
-  let(:station) { Station.new   }
-  let(:train  ) { double :train }
+  let(:station   ) { Station.new        }
+  let(:train     ) { double :train      }
+  let(:coaches   ) { double :coaches    }
+  let(:coach     ) { double :coach      }
+  let(:passangers) { double :passangers }
 
   it "should have a name" do
     expect(station.name).to eq(station.object_id)
@@ -17,6 +20,8 @@ describe Station do
   end
 
   it "should know what train has arrived" do
+    allow(train).to receive(:coaches)
+    allow(coaches).to receive(:each)
     allow(train).to receive(:at_station=)
     station.arrive(train)
     expect(station.platform[0]).to eq(train)
@@ -37,5 +42,12 @@ describe Station do
   it "should have passangers waiting to board trains" do
     expect(station.passangers.count).not_to eq(0)
   end
+
+  # it "should allow passangers to alight" do
+  #   allow(train).to receive(:empty).and_return(passangers)
+  #   start = station.passangers.count
+  #   train.empty
+  #   expect(station.passangers.count).to be > start
+  # end
 
 end

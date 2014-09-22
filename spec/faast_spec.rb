@@ -1,9 +1,11 @@
 require 'faast'
 
 describe Faast do
-  let(:faast)   { Faast.new       }
-  let(:train)   { double :train   }
+  let(:faast  ) { Faast.new       }
+  let(:train  ) { double :train   }
   let(:station) { double :station }
+  let(:coaches) { double :coaches }
+  let(:coach  ) { double :coach   }
 
   it "should contain a number of trains" do
     expect(faast.trains).to be_a(Array)
@@ -27,14 +29,11 @@ describe Faast do
     allow(train).to receive(:at_station=)
     allow(station).to receive(:arrive)
     allow(station).to receive(:depart)
+    allow(coaches).to receive(:each)
+
     init_name = faast.stations[0].platform[0]
     faast.move_trains
     expect(faast.stations[0].platform[0]).not_to eq(init_name)
-  end
-
-  it "should actually move trains from station to station" do
-    faast.move_trains
-    expect(faast.trains).to eq(faast.trains)
   end
 
 

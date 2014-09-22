@@ -1,6 +1,5 @@
 require_relative './train'
 require_relative './station'
-require_relative './passanger'
 
 class Faast
 
@@ -16,7 +15,6 @@ class Faast
 
   DEFAULT_STATIONS = 24
   DEFAULT_TRAINS = 22
-  DEFAULT_PASSANGERS = 7000
 
   def initialize(options = {})
     s = options.fetch( :stations, DEFAULT_STATIONS )
@@ -24,8 +22,6 @@ class Faast
 
     t = options.fetch( :trains, DEFAULT_TRAINS )
     t.times { trains << Train.new }
-
-    p = options.fetch( :passangers, DEFAULT_PASSANGERS )
 
     stations.each do |station|
       station.arrive(trains.pop) unless trains.count == 0
@@ -39,7 +35,7 @@ class Faast
     end
     trains.shuffle
     stations.each do |station|
-      station.arrive(trains.pop) unless trains.count == 0
+      station.arrive(trains.pop) unless trains.pop == nil
     end    
   end
 

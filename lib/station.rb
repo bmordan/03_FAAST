@@ -6,7 +6,7 @@ class Station
     @name = self.object_id
     @platform ||= []
     @passangers ||= []
-    78.times {passangers << Passanger.new} 
+    20.times {passangers << Passanger.new} 
   end
 
   def name
@@ -20,6 +20,7 @@ class Station
   def arrive(train)
     train.at_station = name unless train == nil
     platform.unshift(train)
+    passangers << train.alight
   end
 
   def depart
