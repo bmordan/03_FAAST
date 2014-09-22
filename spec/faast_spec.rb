@@ -3,9 +3,7 @@ require 'faast'
 describe Faast do
   let(:faast  ) { Faast.new       }
   let(:train  ) { double :train   }
-  let(:station) { double :station }
-  let(:coaches) { double :coaches }
-  let(:coach  ) { double :coach   }
+
   context "init:" do
     it "should contain a number of trains" do
       expect(faast.trains).to be_a(Array)
@@ -22,13 +20,29 @@ describe Faast do
   end
 
   context "Moving the trains" do
-    it "should move trains into stations" do
-      faast.move_trains
+    it "should introduce trains into stations" do
+      faast.introduce_trains(0)
       expect(faast.stations[0].platform[0]).to eq(faast.trains[0]) 
     end
 
     it "should find all the stations with trains" do
-      expect(faast.find_trains).to be_a(Array)
+      expect(faast.find_trains).to eq([0,1,2])
+    end
+
+    it "should empty a station" do
+      expect(faast).to receive(:find_trains).exactly(1).times
+      faast.move_trains 
+    end
+
+    it "trains should clear the platform of trains" do
+      faast.find_trains
+      expect(faast.stations[0].platform).to eq([])
+    end
+
+    it "will find a new set of stations" do
+      start = faast.stations[0].platform[0]
+      faast.move_trains
+      expect(faast.stations[0].platform[0]).to_not eq(start)
     end
 
   end
