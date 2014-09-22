@@ -22,10 +22,16 @@ class Faast
 
     t = options.fetch( :trains, DEFAULT_TRAINS )
     t.times { trains << Train.new }
+    
+    #move_trains
   end
  
-  def move_trains 
-   
+  def move_trains
+    i = 0
+    trains.each do |train|
+      stations[i].platform << train
+      i=i+1
+    end
   end
 
 

@@ -18,5 +18,9 @@ describe Passanger do
     expect(passanger.balance).to eq(28)
   end
 
+  it "returns the passanger after touchin!" do
+    expect(passanger.touchin!).to eq(passanger)
+  end
+
 
 end
