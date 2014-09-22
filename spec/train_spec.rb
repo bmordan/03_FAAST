@@ -4,9 +4,9 @@ describe Train do
 
   let(:train      ) { Train.new           }
   let(:station    ) { double :station     }
-  let(:stationname) { double :stationname }
-  let(:nextstation) { double :nextstation }
   let(:coach      ) { double :coach       }
+  let(:passangers ) { double :passangers  }
+  let(:passanger  ) { double :passanger   }
 
   it "should know what station it is stopped at" do
     allow(coach).to receive(:new).and_return(coach)
@@ -28,6 +28,12 @@ describe Train do
 
   it "should return the passangers at a station" do
     expect(train.alight).to be_a(Array)
+  end
+
+  it "can be boarded by passangers from the station" do
+    allow(coach).to receive(:board)
+    allow(passangers).to receive(:each)
+    expect(train.enter(passangers)).to eq(passangers) 
   end
 
 end

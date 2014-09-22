@@ -25,4 +25,16 @@ class Train
     return alighting
   end
 
+  def enter(passangers)
+    passangers.each do |passanger|
+      coaches.each  do |coach|
+        coach.board(passanger)
+        passangers.delete(passanger)
+      end
+    end
+    passangers
+  end
+
+
+
 end
