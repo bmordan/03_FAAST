@@ -20,8 +20,7 @@ describe Station do
   end
 
   it "should know what train has arrived" do
-    allow(train).to receive(:coaches)
-    allow(coaches).to receive(:each)
+    allow(train).to receive(:alight).and_return([])
     allow(train).to receive(:at_station=)
     station.arrive(train)
     expect(station.platform[0]).to eq(train)
@@ -34,6 +33,7 @@ describe Station do
   end
 
   it "should release a train when a train departs" do
+    allow(train).to receive(:alight).and_return([])
     allow(train).to receive(:at_station=)
     station.arrive(train)
     expect(station.depart).to eq(train)
