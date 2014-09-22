@@ -26,14 +26,8 @@ describe Train do
     expect(train.coaches[0].passangers.count).not_to eq(0)
   end
 
-  it "should return the passangers at a station" do
-    expect(train.alight).to be_a(Array)
-  end
-
-  it "can be boarded by passangers from the station" do
-    allow(coach).to receive(:board)
-    allow(passangers).to receive(:each)
-    expect(train.enter(passangers)).to eq(passangers) 
+  it "should spit out the alighting passangers at a station" do
+    expect(train.passangers).to be_a(Array)
   end
 
 end
