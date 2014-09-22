@@ -8,26 +8,28 @@ describe Train do
   let(:passangers ) { double :passangers  }
   let(:passanger  ) { double :passanger   }
 
-  it "should know what station it is stopped at" do
-    allow(coach).to receive(:new).and_return(coach)
-    expect(train.at_station=station).to eq(station)
+  context "Train on init" do
+    it "should know what station it is stopped at" do
+      allow(coach).to receive(:new).and_return(coach)
+      expect(train.at_station=station).to eq(station)
+    end
+
+    it "should have 8 coaches on init" do
+      expect(train.coaches.count).to eq(8)
+    end
+
+    it "should allow passangers to alight when at a station" do
+      
+    end
+
+    it "should have some passangers in the coaches" do
+      expect(train.coaches[0].passangers.count).not_to eq(0)
+    end
   end
 
-  it "should have 8 coaches on init" do
-    expect(train.coaches.count).to eq(8)
-  end
+  context "Train at station" do
+    it "should expose it's alighing passangers" do
 
-  it "should allow passangers to alight when at a station" do
-    allow(station).to receive(:passangers).and_return([])
-    expect(train.coaches[0].alight(station)).to be_a(Array)
+    end
   end
-
-  it "should have some passangers in the coaches" do
-    expect(train.coaches[0].passangers.count).not_to eq(0)
-  end
-
-  it "should spit out the alighting passangers at a station" do
-    expect(train.passangers).to be_a(Array)
-  end
-
 end

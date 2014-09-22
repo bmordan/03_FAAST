@@ -15,11 +15,18 @@ class Coach
   end
 
   def board(passanger)
-    passanger.balance > 2 ? passangers << passanger : false
+    if passanger.balance > 2
+      passanger.touchin!
+      passangers << passanger
+    else
+      false
+    end
   end
 
   def alight
-    @alighting ||= []
+    alight = @passangers
+    @passangers = []
+    alight
   end
 
 end

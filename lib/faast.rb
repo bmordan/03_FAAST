@@ -13,8 +13,8 @@ class Faast
     @stations ||= []
   end
 
-  DEFAULT_STATIONS = 24
-  DEFAULT_TRAINS = 24
+  DEFAULT_STATIONS = 12
+  DEFAULT_TRAINS = 3
 
   def initialize(options = {})
     s = options.fetch( :stations, DEFAULT_STATIONS )

@@ -16,25 +16,8 @@ describe Faast do
   end
 
   it "can be inialized with trains and stations" do
-    expect(faast.stations.count).to eq(24)
+    expect(faast.stations.count).to eq(12)
     expect(faast.trains.count).to eq(0)
   end
-
-  # it "will be circular the last stop will lead to the first" do
-  #   allow(train).to receive(:at_station=)
-  #   expect(faast.move_trains).to be(nil)
-  # end
-
-  it "should move trains from station to station" do
-    allow(train).to receive(:at_station=)
-    allow(station).to receive(:arrive)
-    allow(station).to receive(:depart)
-    allow(coaches).to receive(:each)
-
-    init_name = faast.stations[0].platform[0]
-    faast.move_trains
-    expect(faast.stations[0].platform[0]).not_to eq(init_name)
-  end
-
 
 end

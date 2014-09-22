@@ -12,8 +12,8 @@ class Train
     @coaches ||= []
   end
 
-  def passangers
-    @passangers ||= []
+  def arrive
+    
   end
 
 end
