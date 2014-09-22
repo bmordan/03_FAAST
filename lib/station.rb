@@ -18,7 +18,7 @@ class Station
   end
 
   def arrive(train)
-    train.at_station = name unless train == nil
+    train.at_station = name
     platform.unshift(train)
     passangers << train.alight
   end

@@ -14,7 +14,7 @@ class Faast
   end
 
   DEFAULT_STATIONS = 24
-  DEFAULT_TRAINS = 22
+  DEFAULT_TRAINS = 24
 
   def initialize(options = {})
     s = options.fetch( :stations, DEFAULT_STATIONS )
@@ -35,7 +35,8 @@ class Faast
     end
     trains.shuffle
     stations.each do |station|
-      station.arrive(trains.pop) unless trains.pop == nil
+      train = trains.pop
+      station.arrive(trains.pop) unless train == nil
     end    
   end
 
