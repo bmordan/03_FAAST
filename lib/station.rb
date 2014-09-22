@@ -18,13 +18,11 @@ class Station
   end
 
   def arrive(train)
-    train.at_station = name
     platform.unshift(train)
-    passangers << train.alight
   end
 
   def depart
-    platform.pop
+    @platform.pop
   end
 
   def passangers

@@ -30,14 +30,7 @@ class Faast
   end
  
   def move_trains 
-    stations.each do |station|
-      trains << station.depart
-    end
-    trains.shuffle
-    stations.each do |station|
-      train = trains.pop
-      station.arrive(trains.pop) unless train == nil
-    end    
+   
   end
 
 
