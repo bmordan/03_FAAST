@@ -22,11 +22,6 @@ class Faast
 
     t = options.fetch( :trains, DEFAULT_TRAINS )
     t.times { trains << Train.new }
-
-    stations.each do |station|
-      station.arrive(trains.pop) unless trains.count == 0
-    end
-
   end
  
   def move_trains 

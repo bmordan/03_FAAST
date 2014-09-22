@@ -2,6 +2,7 @@ require 'coach'
 
 describe Coach do
   let(:coach    ) { Coach.new         }
+  let(:fullcoach) { double :fullcoach }
   let(:passanger) { double :passanger }
 
   it "should hold upto 40 passangers" do
@@ -18,6 +19,13 @@ describe Coach do
     allow(passanger).to receive(:balance).and_return(30)
     allow(passanger).to receive(:touchin!)
     expect{coach.board(passanger)}.to change{coach.spaces}.by -1
+  end
+
+  it "passangers can't board the coach if it is full" do
+    allow(passanger).to receive(:balance).and_return(20)
+    allow(passanger).to receive(:touchin!)
+    allow(coach).to receive(:spaces).and_return(0)
+    expect(coach.board(passanger)).to eq(false)
   end
 
   it "passangers can only board if they have the right balance" do
@@ -41,7 +49,7 @@ describe Coach do
     expect(coach.alight.count).to eq(thismuch)
   end
 
-  it "the coach is left empty when they alight" do
+  it "the coach is left empty when passangers alight" do
     coach.alight
     expect(coach.passangers).to eq([])
   end

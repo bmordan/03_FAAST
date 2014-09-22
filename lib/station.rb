@@ -18,7 +18,7 @@ class Station
   end
 
   def arrive(train)
-    platform.unshift(train)
+    platform.unshift(train) unless train.nil?
   end
 
   def depart

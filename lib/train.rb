@@ -13,7 +13,9 @@ class Train
   end
 
   def arrive
-    
+    arrive = []
+    coaches.each {|coach| arrive << coach.alight }
+    arrive.flatten
   end
 
 end

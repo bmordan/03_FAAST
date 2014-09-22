@@ -23,8 +23,13 @@ describe Station do
   end
 
   context "Trains arriving at the station method:" do
+
     it "on arriving a train is added to the platform" do
       expect{station.arrive(train)}.to change{station.platform.count}.by 1
+    end
+
+    it "can accept no train arriving" do
+      expect{station.arrive(nil)}.not_to change{station.platform.count}
     end
 
     it "should release a train when a train departs" do

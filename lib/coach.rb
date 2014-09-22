@@ -3,7 +3,7 @@ require_relative './passanger'
 class Coach
 
   def initialize
-    Random.new.rand(40).times {passangers << Passanger.new}
+    Random.new.rand(40).times {passangers << Passanger.new.touchin!}
   end
 
   def passangers
@@ -15,7 +15,7 @@ class Coach
   end
 
   def board(passanger)
-    if passanger.balance > 2
+    if passanger.balance > 2 && spaces != 0
       passanger.touchin!
       passangers << passanger
     else
