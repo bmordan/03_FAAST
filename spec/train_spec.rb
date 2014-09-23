@@ -24,6 +24,7 @@ describe Train do
       allow(coach).to receive(:alight)
       expect(train.arrive).to be_a(Array)
     end
+
   end
   
 end

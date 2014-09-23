@@ -22,9 +22,24 @@ Load the objects with the following
 
 Now there is a system (sys) with a number of trains in side it. You can choose how many you want. The trains will travel from station to station. Check the following...
 
-    > sys.stations.count = total stations
-    > sys.stations.inject(0) {|r,s| r + s.platform.count } = total trains
-    > sys.stations[0].platform[0].object_id
-     => 70300117228820
+###There will be a number of trains inside the system:
+
+    > sys.stations.count
+    > sys.trains.count
+
+###Trains will travel from station to station
+
+    > puts sys.stations[0].platform[0]
     > sys.move_trains
-    > sys.stations[0].platform[0].object_id
+    > puts sys.stations[1].platform[0]
+
+###At a station passangers will alight
+
+    > puts sys.stations[1].platform[0].coaches[0].passangers.count
+    > puts sys.stations[1].platform[0].coaches[0].passangers.inspect
+    > puts sys.stations[1].platform[0].arrive
+
+###and passangers at the station will board the trains
+    > puts sys.stations[1].passangers.inspect
+    > puts sys.station.allaboard
+    > puts sys.stations[1].passangers.inspect

@@ -5,7 +5,6 @@ describe Station do
   let(:train     ) { double :train      }
   let(:coaches   ) { double :coaches    }
   let(:coach     ) { double :coach      }
-  let(:passangers) { double :passangers }
 
   context "On initialize:" do
 
@@ -37,7 +36,33 @@ describe Station do
       expect{station.depart}.to change{station.platform.count}.by -1
     end
 
-  end
+  end    
+
+  context "All ABOARD!" do
+
+    it "should have a allaboard method" do
+      expect(station).to respond_to(:allaboard)
+    end
+
+    it "allaboard should be nil when no train is at the station" do
+      expect(station.allaboard(nil)).to eq(nil)
+    end
+
+    it "should reduce platform of passangers" do
+      allow(coach).to receive(:spaces).and_return(20)
+      allow(coach).to receive(:board)
+      expect{station.allaboard(train)}.to change{station.passangers} 
+    end
+
+   end
+
+   context "disembarking" do
+     it "should fill the station with passangers from the train" do
+       
+     end
+   end
+
+
 
 
 end

@@ -18,4 +18,19 @@ class Train
     arrive.flatten
   end
 
+  def board(passangers)
+    coaches.each do |coach|
+      (coach.spaces).times { coach.board(passangers.pop) }
+    end
+  end
+
+  def empty(passangers)
+    coaches.each do |coach|
+      coach.passangers.each do |passanger|
+        passangers << passanger
+        coach.passangers.delete(passanger)
+      end
+    end    
+  end
+
 end

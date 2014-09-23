@@ -29,4 +29,14 @@ class Station
     @passangers
   end
 
+  def allaboard(train)
+    return nil if platform == [] || train.nil?
+    train.board(passangers)
+  end
+
+  def empty(train)
+    return nil if platform == [] || train.nil?
+    train.empty(passangers)
+  end
+
 end

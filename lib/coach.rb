@@ -15,6 +15,7 @@ class Coach
   end
 
   def board(passanger)
+    return passanger unless !passanger.nil?
     if passanger.balance > 2 && spaces != 0
       passanger.touchin!
       passangers << passanger

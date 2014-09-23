@@ -6,6 +6,7 @@ describe Coach do
   let(:passanger) { double :passanger }
 
   it "should hold upto 40 passangers" do
+    allow(passanger).to receive(:new).and_return(:passanger)
     expect(coach.spaces).not_to eq(40)
   end
 
