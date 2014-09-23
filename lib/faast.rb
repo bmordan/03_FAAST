@@ -3,7 +3,7 @@ require_relative './station'
 
 class Faast
 
-  attr_reader = :stations
+  attr_accessor(:move_train_position)
 
   def trains
     @trains ||= []
@@ -22,31 +22,35 @@ class Faast
 
     t = options.fetch( :trains, DEFAULT_TRAINS )
     t.times { trains << Train.new }
+
+    @move_train_position = 0
     
-    introduce_trains(0)
+    introduce_trains
   end
  
-  def introduce_trains(n)
-    i = n
+  def introduce_trains
+    i = 0
     trains.each do |train|
       stations[i].platform << train
-      i == stations.count-1 ? i = 0: i=i+1
+      i=i+1
     end
   end
 
-  def find_trains #this dont work
-    indexes = []
-    stations.each_with_index do |station, i|
-      indexes << i unless station.platform == []
-      station.platform.pop
+  def find_trains #this does work but needs refactoring
+    tunnel = []
+    stations.each do |station|
+      tunnel << station.platform.pop unless station.platform == []
     end
-    indexes
+    i = @move_train_position
+    tunnel.each do |train|
+      stations[i].platform << train
+      i=i+1
+    end
   end
 
   def move_trains
+    @move_train_position+1 == stations.count - trains.count ? @move_train_position = 0 : @move_train_position = @move_train_position+1
     find_trains
-    n = Random.new.rand(stations.count)
-    introduce_trains(n)
   end
 
 

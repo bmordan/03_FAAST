@@ -19,30 +19,41 @@ describe Faast do
     end
   end
 
-  context "Moving the trains" do
+  context "Control the trains" do
+
     it "should introduce trains into stations" do
-      faast.introduce_trains(0)
+      faast.introduce_trains
       expect(faast.stations[0].platform[0]).to eq(faast.trains[0]) 
     end
 
     it "should find all the stations with trains" do
-      expect(faast.find_trains).to eq([0,1,2])
+      expect(faast.find_trains).to be_a(Array)
     end
 
-    it "should empty a station" do
+    it "should pop into an array all the trains" do
+      expect(faast.find_trains.count).to eq(3)
+    end
+
+    it "should pop all the trains in the stations" do
       expect(faast).to receive(:find_trains).exactly(1).times
       faast.move_trains 
     end
 
-    it "trains should clear the platform of trains" do
-      faast.find_trains
-      expect(faast.stations[0].platform).to eq([])
+    it "should keep track of the times move_trains is called" do
+      faast.move_trains
+      expect(faast.move_train_position).to eq(1)
     end
 
-    it "will find a new set of stations" do
-      start = faast.stations[0].platform[0]
+    it "should insert the trains from the tunnel into the next station" do
+      firsttrain = faast.stations[0].platform[0]
       faast.move_trains
-      expect(faast.stations[0].platform[0]).to_not eq(start)
+      expect(faast.stations[1].platform[0]).to eq(firsttrain)
+    end
+
+    it "should zero the move_train_position stopping trains leaving the system" do
+      limit = faast.stations.count - faast.trains.count
+      limit.times {faast.move_trains}
+      expect(faast.move_train_position).to eq(0)
     end
 
   end
