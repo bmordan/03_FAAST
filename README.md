@@ -40,6 +40,11 @@ Now there is a system (sys) with a number of trains in side it. You can choose h
     > puts sys.stations[1].platform[0].arrive
 
 ###and passangers at the station will board the trains
-    > puts sys.stations[1].passangers.inspect
-    > puts sys.station.allaboard
-    > puts sys.stations[1].passangers.inspect
+    > train = sys.stations[0].platform[0]
+    > station = sys.stations[0]
+    > in_the_station = station.passangers.count
+    > on_the_train = train.coaches.inject(0) {|r,p| r + p.passangers.count}
+    > station.empty(train)
+    > in_the_station = station.passangers.count
+    > on_the_train = train.coaches.inject(0) {|r,p| r + p.passangers.count}
+    
